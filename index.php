@@ -1,38 +1,42 @@
-<?php
-require_once(dirname(__FILE__)."/../../../scripts/init.inc.php"); 
-$oMysql = MySQL::getInstance();
-$aNews = $oMysql->getNews(NB_NEWS);
 
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title>Selectyze Demonstration : jquery plugin | Make your own select lists with jQuery : MyjQueryPlugins.com</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="Language" content="en" />
-	<link rel="shortcut icon" href="<?php echo URL_SITE; ?>favicon.ico" />
-	<base href="<?php echo URL_SITE; ?>" />
-	<meta name="description" content="Selectyze is a jQuery plugin. Skin your HTML select lists easily with Selectyze. This plugin works with IE6-9, chrome, Safari. Selectyze hide your select element, and build 2 elements inside a container in order to simulate the behaviour of a select element. Very simple !" />
-	<meta name="robots" content="index, follow, all" />
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?><?php echo URL_DEMO_SELECTYZE; ?>css/Selectyze.jquery.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?>static/css/content.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?>static/css/648.css" type="text/css" />
-	<link rel="stylesheet" href="<?php echo URL_SITE; ?>static/css/336.css" type="text/css" />
-	<link href='http://fonts.googleapis.com/css?family=Ropa+Sans' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" href="css/Selectyze.jquery.css" type="text/css" />
+
+	<style type="text/css">
+		.intro {
+			padding: 10px;
+			background-color: #222;
+			color: #AFAFAF;
+			width: 250px;
+		}
+		
+		.clr {
+			height:0;
+			width:0;
+			clear:both;
+		}
+		
+		.contain_select label {
+			float: left;
+display: block;
+margin-right: 5px;
+margin-top: 25px;
+		}
+	</style>
 </head>
 
 <body id="demopage">
 
 
-	<?php require_once(dirname(__FILE__)."/../../../includes/header.inc.php");?>
+
 
 <div id="main">
 
-	<div class="breadcrumb">
-		<a href="index" class="backTo">Home</a>
-		<a href="Selectyze" class="backTo">Selectyze Homepage</a>
-		<div class="clr"></div>
-	</div>
+
 	
 	<div id="left_col">
 
@@ -156,24 +160,20 @@ $aNews = $oMysql->getNews(NB_NEWS);
 			</fieldset>
 		</form>
 
-		<!-- Advertise Bottom -->
-		<?php require_once(dirname(__FILE__)."/../../../includes/pub.inc.php");?>
 	</div>
 		
 	
-	<!-- RIGHT COLUMN -->
-	<?php require_once(dirname(__FILE__)."/../../../includes/col_right.inc.php");?>
+
 		
 	<div class="clr"></div>
 
 </div>
 	
 	
-<!-- FOOTER -->
-<?php require_once(dirname(__FILE__)."/../../../includes/footer.inc.php");?>
 
-	<script type="text/javascript" src="<?php echo URL_SITE; ?><?php echo URL_DEMO_SELECTYZE; ?>jquery/jquery.js"></script>
-	<script type="text/javascript" src="<?php echo URL_SITE; ?><?php echo URL_DEMO_SELECTYZE; ?>jquery/Selectyze.jquery.min.js"></script>
+
+	<script type="text/javascript" src="jquery/jquery.js"></script>
+	<script type="text/javascript" src="jquery/Selectyze.jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.selectyze1').Selectyze({
@@ -202,7 +202,5 @@ $aNews = $oMysql->getNews(NB_NEWS);
 			
 		});
 	</script>
-	
-	<?php require_once dirname(__FILE__)."/../../../includes/analytics.inc.php"; ?>
 </body>
 </html>
