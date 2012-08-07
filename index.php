@@ -20,7 +20,11 @@
 </head>
 
 <body>
-
+<ul>
+	<li>Full documentation on <a href="http://www.myjqueryplugins.com/Selectyze">MyjQueryPlugins.com/Selectyze</a></li>
+	<li>Live demonstration on <a href="http://www.myjqueryplugins.com/Selectyze/demo">Selectyze demonstration page</a></li>
+</ul>
+<h1>Selectyze plugin</h1>
 <?php
 if(isset($_POST['btValide']))
 {
