@@ -1,9 +1,10 @@
 /************************************************************************
 *************************************************************************
 @Name :       	Selectyze - jQuery Plugin
-@Revison :    	1.1
+@Revison :    	1.2
 @Date : 		25/01/2011
 @Author:     	Mickael SURREL - ALPIXEL Agency - (www.myjqueryplugins.com - www.alpixel.fr) 
+@Author:     	CSÉCSY László - KYbest - (www.kybest.hu)
 @License :		 Open Source - MIT License : http://www.opensource.org/licenses/mit-license.php
  
 **************************************************************************
@@ -13,7 +14,8 @@
 		var defaults = {
 			theme:'css3',
 			effectOpen : 'slide',
-			effectClose : 'slide'
+			effectClose : 'slide',
+			preventClose : false
 		}; 
 		
 		if(this.length)
@@ -57,7 +59,9 @@
 				DivSelect.find('a.selectyzeValue').text($(this).text());
 				$this.val($(this).attr('rel'));           
 				$this.trigger('change');         
-				closeList($this.next().find('.UlSelectize'));
+				if (!opts.preventClose) {
+					closeList($this.next().find('.UlSelectize'));
+				}
 			});
 			
 			$(document).click(function(e){if(n) closeList($('.UlSelectize').not(':hidden'));});
