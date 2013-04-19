@@ -142,8 +142,7 @@ echo '<p class="code">';
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.selectyze1').Selectyze({
-				theme : 'skype',
-				preventClose : true
+				theme : 'skype'
 			});
 			
 			$('.selectyze2').Selectyze({
