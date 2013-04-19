@@ -138,11 +138,12 @@ echo '<p class="code">';
 
 
 	<script type="text/javascript" src="jquery/jquery.js"></script>
-	<script type="text/javascript" src="jquery/Selectyze.jquery.js"></script>
+	<script type="text/javascript" src="jquery/Selectyze.jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.selectyze1').Selectyze({
-				theme : 'skype'
+				theme : 'skype',
+				preventClose : true
 			});
 			
 			$('.selectyze2').Selectyze({

@@ -1,9 +1,10 @@
 /************************************************************************
 *************************************************************************
 @Name :       	Selectyze - jQuery Plugin
-@Revison :    	1.1
+@Revison :    	1.2
 @Date : 		25/01/2011
 @Author:     	Mickael SURREL - ALPIXEL Agency - (www.myjqueryplugins.com - www.alpixel.fr) 
+@Contributor on github :     	CSÉCSY László (www.kybest.hu)
 @License :		 Open Source - MIT License : http://www.opensource.org/licenses/mit-license.php
  
 **************************************************************************
@@ -13,12 +14,13 @@
 		var defaults = {
 			theme:'css3',
 			effectOpen : 'slide',
-			effectClose : 'slide'
+			effectClose : 'slide',
+			preventClose : false
 		}; 
-		
+
 		if(this.length)
 		return this.each(function() {
-			
+
 			/** vars **/
 			var 
 				opts = $.extend(defaults, opt),
@@ -27,7 +29,7 @@
 				DivSelect = $('<div>', {'class' : 'DivSelectyze '+opts.theme+''}),
 				UlSelect = $('<ul>',{'class':'UlSelectize'}),
 				liHtml = '';
-			
+
 			zIndex = 9999;
 
 			/** DOM construction && manipulation **/
@@ -45,21 +47,23 @@
 			/** Actions **/
 			n=false;
 			DivSelect.mouseenter(function() {n =false;}).mouseleave(function() {n = true;});
-			
+
 			DivSelect.find('a.selectyzeValue').click(function(e){
 				e.preventDefault();
 				closeList($('ul.UlSelectize').not($(this).next()));
 				openList($(this).next('ul.UlSelectize'));
 			});
-			
+
 			UlSelect.find('a').click(function(e){
 				e.preventDefault();
 				DivSelect.find('a.selectyzeValue').text($(this).text());
 				$this.val($(this).attr('rel'));           
 				$this.trigger('change');         
-				closeList($this.next().find('.UlSelectize'));
+				if (!opts.preventClose) {
+					closeList($this.next().find('.UlSelectize'));
+				}
 			});
-			
+
 			$(document).click(function(e){if(n) closeList($('.UlSelectize').not(':hidden'));});
 
 			/** Construct HTML list ul/li **/
@@ -99,7 +103,7 @@
 						else el.stop(true,true).show();	
 				}
 			}
-			
+
 			/** Effect Close list **/
 			function closeList(el) {
 				switch (opts.effectClose) {
@@ -113,7 +117,7 @@
 						el.hide();	
 				}
 			}
-			
+
 		});
 	}
 })(jQuery);
