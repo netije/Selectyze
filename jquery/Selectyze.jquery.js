@@ -57,6 +57,7 @@
 			UlSelect.find('a').click(function(e){
 				e.preventDefault();
 				DivSelect.find('a.selectyzeValue').text($(this).text());
+				DivSelect.find('a.selectyzeValue').attr('rel', $(this).attr('rel'));
 				$this.val($(this).attr('rel'));           
 				$this.trigger('change');         
 				if (!opts.preventClose) {
