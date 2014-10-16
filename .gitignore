@@ -3,6 +3,8 @@
 .flexProperties
 .project
 .settings
+.idea
+node_modules
 _notes
 dwsync.xml
 Thumbs.db
